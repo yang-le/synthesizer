@@ -1,0 +1,32 @@
+{
+  "name": "audio",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "rollup -c rollup.config.dev.js"
+  },
+  "dependencies": {
+    "rete": "^1.4.5-rc.1",
+    "rete-connection-plugin": "^0.9.0",
+    "rete-context-menu-plugin": "^0.6.0-rc.1",
+    "rete-vue-render-plugin": "^0.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-html": "^0.2.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "@rollup/plugin-strip": "^2.0.0",
+    "eslint": "^7.18.0",
+    "rollup": "^2.38.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
