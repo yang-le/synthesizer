@@ -1,12 +1,12 @@
 {
   "name": "@qtxzh/synthesizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "debug": "rollup -c rollup.config.debug.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm run build"
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
