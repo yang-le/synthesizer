@@ -1,6 +1,6 @@
 {
-  "name": "synthesizer",
-  "version": "1.0.0",
+  "name": "@qtxzh/synthesizer",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
@@ -28,9 +28,16 @@
   "description": "A web based synthersizer powered by rete visual programming framework.",
   "main": "build/synthesizer.common.js",
   "module": "build/synthesizer.esm.js",
-  "repository": "https://github.com/yang-le/synthesizer.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yang-le/synthesizer.git"
+  },
   "author": "Yang Le <yangle0125@qq.com>",
   "dependencies": {
     "rete": "^1.4.5-rc.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yang-le/synthesizer/issues"
+  },
+  "homepage": "https://github.com/yang-le/synthesizer#readme"
 }
