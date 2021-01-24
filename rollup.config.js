@@ -11,7 +11,7 @@ export default {
         file: 'build/synthesizer.min.js',
         format: 'umd',
         exports: 'named',
-        name: 'main',
+        name: 'Synth',
         sourcemap: true,
         plugins: [terser()],
         globals: {

@@ -10,7 +10,6 @@ export default {
     output: {
         file: 'build/demo.js',
         format: 'umd',
-        name: 'main',
         sourcemap: true
     },
     plugins: [

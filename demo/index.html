@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rete@1.4.5-rc.1/build/rete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rete-vue-render-plugin@0.5.0/build/vue-render-plugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rete-connection-plugin@0.9.0/build/connection-plugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rete-context-menu-plugin@0.5.2/build/context-menu-plugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@qtxzh/synthesizer@0.1.2/build/synthesizer.min.js"></script>
+</head>
+
+<body>
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        (async () => {
+            var container = document.querySelector('body');
+            var components = Object.keys(Synth.default).map(k => {
+                return new Synth.default[k](audioCtx);
+            });
+
+            var editor = new Rete.NodeEditor('demo@0.1.0', container);
+            editor.use(VueRenderPlugin.default);
+            editor.use(ContextMenuPlugin.default);
+            editor.use(ConnectionPlugin.default);
+
+            var engine = new Rete.Engine('demo@0.1.0');
+
+            components.map(c => {
+                editor.register(c);
+                engine.register(c);
+            });
+
+            editor.on('process nodecreated noderemoved connectioncreated connectionremoved', async () => {
+                await engine.abort();
+                await engine.process(editor.toJSON());
+            });
+
+            editor.view.resize();
+            editor.trigger('process');
+        })();        
+    </script>
+</body>
+
+</html>
